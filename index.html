@@ -11,8 +11,8 @@
 
 <body>
     <!-- Prepare the DOM element to be held by eCharts -->
-    <div id="mybar" style="width: 600px;height:400px;"></div>
-    <div id="mymap" style="width: 600px;height:400px;"></div>
+    <div id="mybar01" style="width: 600px;height:400px;"></div>
+    <div id="mybar02" style="width: 600px;height:400px;"></div>
 
     <script type="text/javascript">
         // Initialse eCharts
@@ -76,7 +76,7 @@
         };
 
         // Use the option to display chart
-        var myChart1 = echarts.init(document.getElementById('mybar'));
+        var myChart1 = echarts.init(document.getElementById('mybar01'));
         myChart1.setOption(option);
     </script>
 
@@ -148,6 +148,9 @@ option = {
         }
     ]
 };
+// Use the option to display chart
+        var myChart1 = echarts.init(document.getElementById('mybar02'));
+        myChart1.setOption(option);
     </script> 
 
 
