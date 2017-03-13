@@ -1,82 +1,150 @@
 <!DOCTYPE html>
 <html>
-    <head> 
+
+<head>
     <meta charset="utf-8">
-    <title>Homework5</title>
+    <title>ECharts</title>
     <!-- Use echarts.js -->
     <script src="echarts.min.js"></script>
-    </head>
-    <body>
-            <!-- Prepare the DOM element to be held by eCharts -->
+    <script src="map.js"></script>
+</head>
+
+<body>
+    <!-- Prepare the DOM element to be held by eCharts -->
     <div id="mybar" style="width: 600px;height:400px;"></div>
-        <script type="text/javascript">
-option = {
-    title : {
-        text: 'Life Expectancy at birth',
-        subtext: 'from 2005 to 2015'
-    },
-    tooltip : {
-        trigger: 'axis'
-    },
-    legend: {
-        data:['Male','Female']
-    },
-    toolbox: {
-        show : true,
-        feature : {
-            dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar']},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    calculable : true,
-    xAxis : [
-        {
-            type : 'category',
-            data : ['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015']
-        }
-    ],
-    yAxis : [
-        {
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'Male',
-            type:'bar',
-            data:[78.8, 79.4, 79.4, 79.4, 79.8, 80.1, 80.3, 80.7, 81.1, 81.2, 81.4],
-            markPoint : {
-                data : [
-                    {type : 'max', name: '最大值'},
-                    {type : 'min', name: '最小值'}
+    <div id="mymap" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // Initialse eCharts
+        option = {
+            "title": {
+                "text": "Hong Kong Population by gender",
+            },
+            "legend": {
+                "data": ["Male", "Female"],
+                "align": "left",
+                "top": 20,
+                "left": 10
+            },
+            "xAxis": [{
+                "type": "category",
+                "data": [
+                    1991,
+                    1996,
+                    2001
+                ],
+                "axisTick": {
+                    "alignWithLabel": true
+                }
+            }],
+            "yAxis": [{
+                "type": "value"
+            }],
+            "series": [{
+                "name": "Male",
+                "type": "bar",
+                "data": [
+                    2811991,
+                    3108107,
+                    3285344
+                ],
+                "markPoint": {
+                    "data": [{
+                        "type": "max",
+                        "name": "max"
+                    }]
+                }
+            }, {
+                "name": "Female",
+                "type": "bar",
+                "data": [
+                    2710290,
+                    3109449,
+                    3423045
+                ],
+                "markLine": {
+                    data: [
+                        [{
+                            "coord": [0, 3000000]
+                        }, {
+                            "coord": [2, 1000000]
+                        }]
+                    ]
+                }
+            }]
+        };
+        // Use the option to display chart
+        var myChart1 = echarts.init(document.getElementById('mybar'));
+        myChart1.setOption(option);
+    </script>
+
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('mymap'));
+        option = {
+            "title": {
+                "text": "POI in each region",
+            },
+            "tooltip": {},
+            "legend": {
+                "orient": "vertical",
+                "right": 20,
+                "bottom": 20,
+                "data": [
+                    "POI"
                 ]
             },
-            markLine : {
-                data : [
-                    {type : 'average', name: '平均值'}
-                ]
-            }
-        },
-        {
-            name:'Female',
-            type:'bar',
-            data:[84.6, 85.5, 85.4, 85.5, 85.9, 86.0, 86.7, 86.4, 86.7, 86.9, 87.3],
-            markPoint : {
-               data : [
-                    {type : 'max', name: '最大值'},
-                    {type : 'min', name: '最小值'}
-                ]
+            "visualMap": {
+                "min": 0,
+                "max": 15000,
+                "left": "left",
+                "top": "bottom",
+                "show": false,
+                "text": [
+                    "High",
+                    "Low"
+                ],
+                "calculable": true
             },
-            markLine : {
-                data : [
-                    {type : 'average', name : '平均值'}
-                ]
-            }
+            "geo": {
+                "map": "GeoJSON",
+                "roam": true,
+                "center": [
+                    114.31,
+                    30.52
+                ],
+                "zoom": 1,
+                "scaleLimit": {
+                    "min": 1,
+                    "max": 3
+                }
+            },
+            "series": [{
+                "name": "POI",
+                "type": "map",
+                "geoIndex": 0,
+                "data": [{
+                    "name": "福建",
+                    "value": 500
+                }, {
+                    "name": "广东",
+                    "value": 5000
+                }, {
+                    "name": "重庆",
+                    "value": 15000
+                }, {
+                    "name": "北京",
+                    "value": 15000
+                }]
+            }]
         }
-    ]
-};
-        </script>
-    </body>
+        // 使用刚指定的配置项和数据显示图表。
+        //echarts.registerMap('GeoJSON', geoJSON);
+        myChart.setOption(option);
+    </script>
+
+
+</body>
+
 </html>
