@@ -10,18 +10,17 @@
 </head>
 
 <body>
- <div class="container-fluid">
- <div class="row">
-  <div class="col-md-offset-2 col-md-8"> 
     <div class="topic">
         <h2> Hongkongers enjoy world's longest life expectancy </h2>
         <h5> Presented by Melissa KO</h5>
     </div>
     <br>
     </div>
-    <div class="container-fluid">
-    <div class="row">
-    <div class="col-md-offset-1 col-md-9">
+    <br>
+    <br>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-sm-offset-0">
     <div class="content">
         Japanese womenhad the world’s longest average life expectancy since 1985; however; this changed
         in 2011.The average lifespan for women in Hong Kong is 87.32 years, and local men on average can 
@@ -33,12 +32,14 @@
         <a href ="http://www.scmp.com/news/hong-kong/health-environment/article/1995947/hong-kong-women-and-men-enjoy-worlds-longest-life">
         <img src="http://cdn3.i-scmp.com/sites/default/files/styles/980x551/public/images/methode/2016/01/31/0daba2a0-c804-11e5-bbaf-0bb83de8b470_1280x720.jpg?itok=PZQUGBWN">
         </a>
+        <br>
         Source from SCMP. 
     </div>
     <br>
-<div class="col-sm-8">
- <!-- Prepare the DOM element to be held by eCharts -->
-    <div id="mybar01" style="width: 600px;height:400px;"></div>
+    <p><br></p>
+<div class="col-xs-10 col-md-8">
+    <div id="mybar01" style="width: 600px;height:400px;">     
+    </div>
     <script>
 option = {
     title : {
@@ -111,16 +112,14 @@ option = {
         var myChart1 = echarts.init(document.getElementById('mybar01'));
         myChart1.setOption(option);
     </script> 
-    </div>
+</div>
     
-    <div class="col-sm-4">
+    <div class="col-xs-2 col-md-4">
         this chart is about 
     </div>
-    </div>
-    </div>
+</div>
+</div>
   </div>
- </div>
- </div>
 </body>
 
 </html>
