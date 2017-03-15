@@ -131,6 +131,7 @@ option = {
 </div>
 </div>
 
+<div id="mybar" style="width: 600px;height:400px;"></div>
 <script>
   option = {
     title: {
@@ -214,6 +215,9 @@ option = {
         }
     ]
 };
+     // Use the option to display chart
+        var myChart1 = echarts.init(document.getElementById('mybar'));
+        myChart1.setOption(option);
 </script>
 </body>
 
