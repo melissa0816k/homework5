@@ -351,16 +351,16 @@ option = {
  <div id="mymap" style="width: 600px;height:400px;"></div>
 <script>
         // 基于准备好的dom，初始化echarts实例
-        var myChart4 = echarts.init(document.getElementById('mymap'));
-myChart4.showLoading();
+        var myChart04 = echarts.init(document.getElementById('mymap'));
+myChart04.showLoading();
 
 $.get('xianggang.json', function (geoJson) {
 
-    myChart4.hideLoading();
+    myChart04.hideLoading();
 
-    echarts.registerMap('xianggang', geoJson);
+    echarts.registerMap('HK', geoJson);
 
-    myChart4.setOption(option = {
+    myChart04.setOption(option = {
         title: {
             text: '香港18 區人口密度 （2011）',
             subtext: '人口密度數據來自Wikipedia',
@@ -393,12 +393,11 @@ $.get('xianggang.json', function (geoJson) {
         },
         series: [
             {
-                name: '香港18區人口密度',
+                name: '香港18人口密度',
                 type: 'map',
-                mapType: 'xianggang', // 自定义扩展图表类型
+                mapType: 'HK', // 自定义扩展图表类型
                 itemStyle:{
-                    normal:{label:{show:true}},
-                    emphasis:{label:{show:true}}
+                    normal:{label:{show:true}}
                 },
                 data:[
                     {name: '中西區', value: 20057.34},
@@ -447,7 +446,7 @@ $.get('xianggang.json', function (geoJson) {
 });
         // 使用刚指定的配置项和数据显示图表。
         //echarts.registerMap('GeoJSON', geoJSON);
-        myChart4.setOption(option);
+        myChart04.setOption(option);
 </script>
 
 <footer>
