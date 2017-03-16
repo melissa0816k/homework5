@@ -316,15 +316,15 @@ option = {
 <script>
         // 基于准备好的dom，初始化echarts实例
         var myChart4 = echarts.init(document.getElementById('mymap'));
-myChart.showLoading();
+myChart4.showLoading();
 
 $.get('data/asset/geo/HK.json', function (geoJson) {
 
-    myChart.hideLoading();
+    myChart4.hideLoading();
 
     echarts.registerMap('HK', geoJson);
 
-    myChart.setOption(option = {
+    myChart4.setOption(option = {
         title: {
             text: '香港18 區人口密度 （2011）',
             subtext: '人口密度數據來自Wikipedia',
@@ -414,12 +414,6 @@ $.get('data/asset/geo/HK.json', function (geoJson) {
         //echarts.registerMap('GeoJSON', geoJSON);
         myChart4.setOption(option);
 </script>
-
-
-
-
-
-
 
 <footer>
     <br>
