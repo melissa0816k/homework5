@@ -318,11 +318,11 @@ option = {
         var myChart4 = echarts.init(document.getElementById('mymap'));
 myChart4.showLoading();
 
-$.get('data/asset/geo/HK.json', function (geoJson) {
+$.get('xianggang.json', function (geoJson) {
 
     myChart4.hideLoading();
 
-    echarts.registerMap('HK', geoJson);
+    echarts.registerMap('xianggang', geoJson);
 
     myChart4.setOption(option = {
         title: {
@@ -359,7 +359,7 @@ $.get('data/asset/geo/HK.json', function (geoJson) {
             {
                 name: '香港18區人口密度',
                 type: 'map',
-                mapType: 'HK', // 自定义扩展图表类型
+                mapType: 'xianggang', // 自定义扩展图表类型
                 itemStyle:{
                     normal:{label:{show:true}},
                     emphasis:{label:{show:true}}
